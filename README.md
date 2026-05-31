@@ -1,115 +1,111 @@
-# 🤖 Roblox-Automation
+> [!NOTE]  
+> Join the [Discord server](https://qing762.is-a.dev/discord) for issues. Thanks a lot!
 
-[![Python](https://img.shields.io/badge/Python-3.9%2B-blue)](https://python.org)
-[![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
-[![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux-lightgrey)]()
+> [!WARNING]
+> Please be advised that usage of this tool is entirely at your own risk. I assumes no responsibility for any adverse consequences that may arise from its use, and users are encouraged to exercise caution and exercise their own judgment in utilizing this tool.
 
-> **⚠️ Uyarı / Disclaimer:** Bu araç **sadece eğitim amaçlıdır**. Roblox otomasyonu, Roblox'un Kullanım Şartları'nı ihlal eder. Hesap yasaklamalarından ve diğer olası sorunlardan yazarlar sorumlu değildir. Kullanım tamamen kendi sorumluluğunuzdadır.
+# Roblox Auto Signup
 
-Web arayüzü, proxy desteği ve e-posta doğrulama içeren kapsamlı bir Roblox hesap otomasyon aracı. Hesap oluşturma, mevcut hesaplarla giriş yapma, gruplara katılma, oyunları beğenme, kullanıcı takip etme ve rastgele biografi ayarlama gibi işlemleri otomatikleştirir.
+A tool that auto fetch a temporary email address and creates an account at https://roblox.com/.
 
-## ✨ Özellikler / Features
+## How it works
 
-- 🚀 **Hesap Oluşturma** – Otomatik kayıt (rastgele veya özel kullanıcı adı)
-- 🔐 **Mevcut Hesaplarla Giriş** – `accounts.txt` dosyasından okuma
-- 📧 **E-posta Doğrulama** – Geçici e-posta adresi oluşturma ve otomatik doğrulama
-- 🌐 **Proxy Desteği** – Decodo konut proxy entegrasyonu veya özel proxy listesi
-- 🎮 **Otomatik Eylemler** – Gruplara katılma, oyun beğenme, kullanıcı takip etme
-- 🎭 **Avatar Özelleştirme** – Gerçekçi görünüm için avatar değiştirme
-- 🛡️ **Anti-Debug** – Çalışma zamanında hata ayıklayıcı ve analiz araçlarını tespit etme
-- ⏱️ **Lisans Sistemi** – Çevrimiçi tarih doğrulama ile süre sınırlı lisans
-- 🖥️ **Web Kontrol Paneli** – Gerçek zamanlı loglar, terminal komutları ve acil durdurma butonu
-- 📡 **Discord Webhook** – Her hesap işleminden sonra detaylı rapor
+The process begins by utilizing the [Mail.tm](https://mail.tm/) service to obtain a temporary email address. Then it will create an [Roblox](https://roblox.com) account. The email address is then utilized for verification for the [Roblox](https://roblox.com) account. Subsequently, another request is made to [Mail.tm](https://mail.tm/) to retrieve the email confirmation link. Upon activation of the account, the user is able to log in to Roblox and enjoy the game with the account generated.
 
-## 📦 Gereksinimler / Requirements
 
-- Python 3.9 veya üzeri
-- Windows (tavsiye edilir) veya Linux
-- Chrome veya Brave tarayıcı (otomatik algılanır)
-- Lisans doğrulaması için internet bağlantısı
+## Features
 
-## 🚀 Hızlı Başlangıç / Quick Start
+- Able to use any Chromium-based browser
+- Able to use non authenticated proxy
+- Be able to prompt to change to your own password instead of using the default one
+- Password complexity checker for custom password
+- Automatically checks if the username generated is taken or not. If yes, a new one would be generated
+- Customizable username prefix
+- Friends adding functionality
+- Able to randomly customize the account avatar (Clothes, Body size, etc)
+- Error handling
+- Integration with [NopeCHA](https://nopecha.com/) to solve captcha automatically
+- Built in [Ungoogle Chromium (Windows)](https://github.com/ungoogled-software/ungoogled-chromium) installer
+- Compatible with [Roblox Account Manager](https://github.com/ic3w0lf22/Roblox-Account-Manager)
+- Structured username format
+- Update checker functionality
+- The script does all the job by itself
+- No webdriver required
+- Fast execution time
 
-### 1. Depoyu klonlayın / Clone the repository
-```bash
-git clone https://github.com/Sasorii-sc/Roblox-Automation.git
-cd Roblox-Automation
-2. Gerekli kütüphaneleri yükleyin / Install dependencies
-bash
-pip install -r requirements.txt
-3. lib/ klasörünü hazırlayın / Prepare the lib/ folder
-Dosya yapısının şu şekilde olduğundan emin olun:
 
-text
-lib/
-├── __init__.py
-├── lib.py          # Main sınıfı ve Roblox işlemleri
-└── NopeCHA/        # (opsiyonel) Captcha çözücü eklentisi
-4. Uygulamayı çalıştırın / Run the application
-bash
-python main.py
-Kontrol paneli otomatik olarak http://127.0.0.1:5000 adresinde açılacaktır.
+> [!NOTE]
+> Extension loading (NopeCHA) can only by used on Chrome version 136 and below. As such, Ungoogled Chromium with version 136.0.7103.113 (Windows) is installed as a workaround.  As such, you might see a significant increase in folder size due to the presence of the browser.
 
-5. Giriş yapın / Login
-Varsayılan kullanıcı bilgileri (main.py içinde değiştirebilirsiniz):
+> [!WARNING]
+> For Mac / Linux users, you can find Ungoogle Chromium for your OS [here](https://ungoogled-software.github.io/ungoogled-chromium-binaries/releases/). Be sure to install version that is v136 and below.
 
-Kullanıcı adı / Username: sasorii / Şifre / Password: Kayra1676
 
-Kullanıcı adı / Username: froxyy / Şifre / Password: Furkan1234
+## Installation / Usage
 
-⚙️ Yapılandırma / Configuration
-Tüm ayarlar web arayüzü üzerinden yapılır:
+### [>>> VIDEO GUIDE <<<](https://qing762.is-a.dev/roblox-guide)
 
-Sekme / Tab	Seçenek / Option	Açıklama / Description
-Genel / General	Mod	Yeni hesap oluştur veya mevcut hesaplarla giriş yap
-İşlem sayısı	İşlenecek hesap sayısı
-İsim öneki (opsiyonel)	Oluşturulan kullanıcı adları için önek
-E-posta doğrulama	Geçici e-posta ve doğrulama işlemlerini aktifleştir
-Avatar özelleştirme	Avatarı otomatik değiştir
-Eylemler / Actions	Grup linki	Katılınacak Roblox grubunun URL'si
-Oyun linki (beğen)	Beğenilecek oyunun URL'si
-Kullanıcı takip et	Virgülle ayrılmış kullanıcı adları
-Discord webhook	İşlem raporları için webhook adresi
-Proxy ve Güvenlik	Decodo ağı	Yerleşik konut proxy'leri (tavsiye edilir)
-Manuel proxy'ler	Özel proxy listesi (ip:port)
-Gizli mod	Özel gezinti modu
-NopeCHA anahtarı	(opsiyonel) Captcha çözücü
-⌨️ Dahili Terminal Komutları / Built‑in Terminal Commands
-Web kontrol paneli içinde aşağıdaki komutları yazabilirsiniz:
+#### 1. Portable executable method:
+- Just download the executable from the [releases tab](https://github.com/qing762/roblox-auto-signup/releases) and run it to generate accounts.
+- If your antivirus has flagged for potential malware, that should be a false flag so feel free to safely ignore. If you dont trust it enough somehow, feel free to use [Step 2](https://github.com/qing762/roblox-auto-signup#2-python-file-method) and build it yourself instead.
+- The account details should be generated at the `accounts.txt` file under the same directory.
 
-Komut / Command	İşlev / Action
-/clear	Konsol loglarını temizler
-/stop	Çalışan işlemi acilen durdurur
-/read acc	accounts.txt dosyasının içeriğini gösterir
-/clear acc	accounts.txt dosyasını siler
-/list acc	Dosyadaki toplam hesap sayısını gösterir
-/help	Tüm komutları listeler
-🧪 Örnek accounts.txt (Giriş modu için)
-text
-Username: john_doe, Password: pass123, Email: john@example.com
-Username: jane_doe, Password: abc456, Email: jane@example.com
-📁 Proje Yapısı / Project Structure
-text
-Roblox-Automation/
-├── main.py                # Ana uygulama
-├── lib/
-│   ├── lib.py             # Ana iş mantığı (Main sınıfı)
-│   └── NopeCHA/           # (opsiyonel) Captcha eklentisi
-├── accounts.txt           # Mevcut hesaplar (varsa)
-├── requirements.txt       # Bağımlılıklar
-├── .gitignore             # Gereksiz dosyalar
-└── README.md              # Bu dosya
-⚠️ Yasal Sorumluluk Reddi / Legal Disclaimer
-Bu yazılım yalnızca eğitim ve araştırma amaçları için sağlanmıştır.
-Roblox üzerinde otomasyon kullanmak, Roblox'un Kullanım Şartları'nı ihlal eder ve hesap askıya alınmasına veya kalıcı olarak yasaklanmasına neden olabilir.
-Yazarlar, bu aracın yanlış veya izinsiz kullanımından doğacak herhangi bir hasar veya hesap kaybından sorumlu değildir.
+#### 2. Python file method:
+ - First, ensure that Python is installed:
+ ``` shell
+ https://www.python.org/downloads/
+ ```
+ - Run the following command:
+ ```shell
+ git clone https://github.com/qing762/roblox-auto-signup/ && cd roblox-auto-signup && pip install -r requirements.txt && python main.py
+ ```
 
-📜 Lisans / License
-Bu proje MIT Lisansı ile lisanslanmıştır – uygun atıf yapıldığı sürece kullanım, değiştirme ve dağıtım serbesttir.
+And you're all set! Follow the instructions while interacting with the Python file.
 
-👥 Yapımcılar / Authors
-Froxyy/Sasorii
 
-Sasori (Sasorii-sc)
+## Anonymous Usage Analytics
 
-Built with 🖤 for automation research / Otomasyon araştırmaları için 🖤 ile yapılmıştır.
+This tool collects **anonymous usage data** to help to improve its features. 
+
+Here are the list of data that will be collected:
+- Tool version
+- Anonymous user ID (a randomly generated UUID stored locally to distinguish sessions from unique users)
+
+> The UUID is generated once on first run and saved locally. It is not tied to any of your identity.
+
+<ins>**No personal information or sensitive data will be collected.**</ins>
+
+To opt out, you can disable analytics at any time by:
+- Enter `n`or `N` when prompted on the first run of the script.
+- Running the script with `--no-analytics` argument
+- Edit the analytics.txt file and change the value from `analytics=1` to `analytics=0`
+
+
+## Contributing
+
+Contributions are always welcome!
+
+To contribute, fork this repository and do anything you wish. After that, make a pull request.
+
+
+## Feedback / Issues
+
+If you have any feedback or issues running the code, please join the [Discord server](https://qing762.is-a.dev/discord)
+
+### FOR ROBLOX CORPORATION EMPLOYEES IF YOU WISH TO REQUEST FOR TAKING DOWN THIS PROJECT
+
+If the company wishes to discontinue or terminate this project, please do not hesitate to reach out to me. I can be reached at [Discord/qing762](https://discord.com/users/635765555277725696). Thank you for your attention to this matter.
+
+
+## License
+
+Licensed under the GNU General Public License v3.0. See [LICENSE](https://github.com/qing762/roblox-auto-signup/blob/main/LICENSE) for details.
+
+
+---
+
+
+[![Star History Chart](https://api.star-history.com/svg?repos=qing762/roblox-auto-signup&type=Date&theme=dark)](https://www.star-history.com/#qing762/roblox-auto-signup&Date)
+
+
+---
