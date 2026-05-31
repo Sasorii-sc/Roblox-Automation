@@ -79,10 +79,10 @@ def get_hwid():
         try: return os.popen('vol c:').read().strip().split(' ')[-1]
         except: return "CRITICAL_HWID_ERROR"
 
-# Lisans sistemi devre dışı - herkes kullanabilir
 LICENSE_VALID = True
 LICENSE_INFO = "UNLOCKED"
 EASTER_EGG_ACTIVE = False
+
 def get_network_date():
     try:
         res = requests.head('https://www.google.com', timeout=5)
@@ -113,59 +113,14 @@ def get_network_date():
 def verify_license():
     global LICENSE_VALID, LICENSE_INFO, EASTER_EGG_ACTIVE
     security_check()
-    current_hwid = get_hwid()
-    
-    if current_hwid not in AUTHORIZED_HWIDS:
-        LICENSE_VALID = False
-        LICENSE_INFO = "UNAUTHORIZED"
-        try: ctypes.windll.kernel32.SetConsoleTitleW("Firewall Security - Unauthorized Access")
-        except: pass
-        print("\n" + "="*70)
-        print(" 🚨 ACCESS DENIED - VALID LICENSE NOT FOUND 🚨 ")
-        print("="*70)
-        print(f"\n🔑 Your Device ID: {current_hwid}\n")
-        return
-        
-    expiry_str = AUTHORIZED_HWIDS[current_hwid]
-    if expiry_str.upper() == "LIFETIME":
-        LICENSE_VALID = True
-        LICENSE_INFO = "LIFETIME"
-    else:
-        try:
-            expiry_date = datetime.strptime(expiry_str, "%Y-%m-%d").date()
-            today = get_network_date() 
-            if today is None:
-                LICENSE_VALID = False
-                LICENSE_INFO = "NETWORK ERROR"
-                return
-
-            days_left = (expiry_date - today).days
-            
-            if days_left <= -365:
-                EASTER_EGG_ACTIVE = True
-                LICENSE_VALID = False
-                LICENSE_INFO = "EASTER EGG EXPIRED"
-                try: ctypes.windll.kernel32.SetConsoleTitleW("ZORT - BUSTED")
-                except: pass
-                print("\n[!] MEGA EXPIRED DETECTED. PREPARING SPECIAL SURPRISE...")
-                
-            elif days_left < 0:
-                LICENSE_VALID = False
-                LICENSE_INFO = "EXPIRED"
-                try: ctypes.windll.kernel32.SetConsoleTitleW("System Security - License Expired")
-                except: pass
-                print("\n" + "!"*70)
-                print(" ⏳ YOUR LICENSE HAS EXPIRED - SÜRENİZ DOLDU ⏳ ")
-                print("!"*70)
-                print(f"\n[WARNING] Your license for device {current_hwid} expired on {expiry_str}.")
-                print(">>> Lütfen yeni bir lisans paketi almak için bizimle iletişime geçin.")
-                print("\n" + "!"*70 + "\n")
-            else:
-                LICENSE_VALID = True
-                LICENSE_INFO = f"{days_left} DAYS LEFT"
-        except ValueError:
-            LICENSE_VALID = False
-            LICENSE_INFO = "INVALID CONFIG"
+    # License check disabled - everyone can use
+    LICENSE_VALID = True
+    LICENSE_INFO = "UNLOCKED"
+    EASTER_EGG_ACTIVE = False
+    print("\n" + "="*70)
+    print(" ✅ SYSTEM UNLOCKED - FULL ACCESS ✅ ")
+    print("="*70)
+    print("\n[INFO] License check disabled. Everyone can use this software.\n")
 
 verify_license()
 
