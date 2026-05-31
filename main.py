@@ -79,14 +79,10 @@ def get_hwid():
         try: return os.popen('vol c:').read().strip().split(' ')[-1]
         except: return "CRITICAL_HWID_ERROR"
 
-AUTHORIZED_HWIDS = {
-    "0479FC80-E657-11ED-845E-079466F61700": "2010-05-04", 
-}
-
-LICENSE_VALID = False
-LICENSE_INFO = "UNVERIFIED"
+# Lisans sistemi devre dışı - herkes kullanabilir
+LICENSE_VALID = True
+LICENSE_INFO = "UNLOCKED"
 EASTER_EGG_ACTIVE = False
-
 def get_network_date():
     try:
         res = requests.head('https://www.google.com', timeout=5)
