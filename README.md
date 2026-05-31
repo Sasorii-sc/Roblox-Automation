@@ -34,6 +34,7 @@ Web arayüzü, proxy desteği ve e-posta doğrulama içeren kapsamlı bir Roblox
 ```bash
 git clone https://github.com/Sasorii-sc/Roblox-Automation.git
 cd Roblox-Automation
+```
 2. Gerekli kütüphaneleri yükleyin / Install dependencies
 bash
 pip install -r requirements.txt
