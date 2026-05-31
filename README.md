@@ -6,7 +6,7 @@
 > **Disclaimer:** Educational purpose only. Using automation on Roblox violates their Terms of Service. Use at your own risk.
 
 Web-based Roblox account automation tool with proxy support, email verification, and real-time dashboard.
-
+![Dashboard Screenshot](dashboard.png)
 ## Quick Start
 
 **1. Clone the repository**
