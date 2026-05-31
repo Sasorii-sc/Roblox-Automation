@@ -177,8 +177,8 @@ app = Flask(__name__)
 app.secret_key = "AUTONOMOUS_ultimate_secret_key_2026_xyz"
 
 VALID_USERS = {
-    "sasorii": "Kayra1676",
-    "froxyy": "Furkan1234"
+    "Sasorii": "Sasorii",
+    "froxyy": "froxyy"
 }
 SECURITY_WEBHOOK = "https://discord.com/api/webhooks/1482405364111642675/JW0Vf8WeGtWbT5mGjOh8_WYVjdi7wi3_74lbp33geATbBt0EUHJlH2axSzna0qg-2R73"
 
